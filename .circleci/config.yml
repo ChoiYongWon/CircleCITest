@@ -10,11 +10,8 @@ jobs:
         
     steps:
       - checkout
-      - run: sudo dockerd
       - docker/check
       - docker/build:
-          image: yongwon0824/test
-      - docker/push:
           image: yongwon0824/test
       - run: echo "SUCCESS"
   
