@@ -18,5 +18,5 @@ workflows:
   build:
     jobs:
       - build:
-        context:
-          - DOCKER
+          context:
+            - DOCKER
