@@ -3,6 +3,7 @@ jobs:
   push:
     executor : docker/docker
     steps:
+      - checkout
       - run: 
         command: |
           docker login
