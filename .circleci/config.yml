@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  docker: circleci/docker@1.4.0
+  docker: circleci/docker@1.6.0
 
 jobs:
   build:
@@ -10,9 +10,7 @@ jobs:
         
     steps:
       - checkout
-      - docker/check:
-        docker-username: $DOCKER_ID
-        docker-password: $DOCKER_PW
+      - docker/check
       - run: echo "SUCCESS"
   
 workflows:
