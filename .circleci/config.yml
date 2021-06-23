@@ -12,7 +12,7 @@ jobs:
       - docker/check
       - docker/build:
           image: yongwon0824/test
-       - docker/push:
+      - docker/push:
           image: yongwon0824/test
       - run: echo "SUCCESS"
   
