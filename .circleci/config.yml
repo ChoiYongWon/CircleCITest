@@ -1,5 +1,18 @@
 version: 2
 jobs:
+  push:
+    executor : docker/docker
+    steps:
+      - setup_remote_docker
+      - checkout
+      - docker/check
+      - docker/build:
+        image: test/git-circleci
+        tag: "latest,$CIRCLE_SHA1"
+      - run:
+        command: |
+          echo "Digest is: $(</tmp/digest.txt)"
+          echo "testing!!!"
   one:
     docker:
       - image: circleci/ruby:2.4.1
@@ -40,7 +53,7 @@ workflows:
   version: 2
   one_and_two:
     jobs:
-      - one
+      - push
       - two:
           requires:
-            - one
+            - push
