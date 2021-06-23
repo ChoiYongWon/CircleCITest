@@ -4,8 +4,7 @@ version: 2.1
 
 jobs:
   build:
-    docker:
-      - image: docker:latest
+    executor: docker/docker
         
     steps:
       - setup_remote_docker
