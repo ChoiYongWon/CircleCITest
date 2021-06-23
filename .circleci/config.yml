@@ -1,14 +1,19 @@
 version: 2.1
+
+orbs:
+  docker: circleci/docker@1.4.0
+
 jobs:
   build:
     docker: 
       - image: circleci/node:latest
-        auth:
-          username: yongwon0824 
-          password: $DOCKER_PW
+        
     steps:
       - checkout
-      - run: echo $DOCKER_PW
+      - docker/check:
+        docker-username: yongwon0824
+        docker-password: $DOCKER_PW
+      - run: echo "SUCCESS"
   
 workflows:
   version: 2.1
