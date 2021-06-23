@@ -10,9 +10,8 @@ jobs:
         
     steps:
       - checkout
+      - run: dockerd
       - docker/check
-      - run: cd /home/circleci/project/
-      - run : ls
       - docker/build:
           image: yongwon0824/test
       - docker/push:
