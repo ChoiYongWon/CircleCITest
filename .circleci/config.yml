@@ -8,7 +8,7 @@ jobs:
           password: $DOCKER_PW
     steps:
       - checkout
-      - run: echo "testing!!!"
+      - run: echo $DOCKER_PW
   
 workflows:
   version: 2.1
