@@ -10,7 +10,7 @@ jobs:
         
     steps:
       - checkout
-      - run: dockerd
+      - run: sudo dockerd
       - docker/check
       - docker/build:
           image: yongwon0824/test
