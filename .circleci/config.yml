@@ -11,8 +11,10 @@ jobs:
     steps:
       - checkout
       - docker/check:
-        docker-username: yongwon0824
-        docker-password: $DOCKER_PW
+        docker-username: | 
+          DOCKER_ID
+        docker-password: | 
+          $DOCKER_PW
       - run: echo "SUCCESS"
   
 workflows:
