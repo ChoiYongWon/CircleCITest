@@ -1,19 +1,17 @@
-version: 2
+version: 2.1
 jobs:
-  push:
-    executor : docker/docker
+  builld:
+    docker: 
+      - image: circleci/node:latest
+        auth:
+          username: yongwon0824 
+          password: $DOCKER_PW
     steps:
       - checkout
-      - run: 
-        command: |
-          docker login
-      - run:
-        command: |
-          echo "Digest is: $(</tmp/digest.txt)"
-          echo "testing!!!"
+      - run: echo "testing!!!"
   
 workflows:
-  version: 2
-  one_and_two:
+  version: 2.1
+  build:
     jobs:
-      - push
+      - build
