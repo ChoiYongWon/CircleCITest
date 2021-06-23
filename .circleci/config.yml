@@ -1,19 +1,23 @@
 version: 2.1
 
-orbs:
-  docker: circleci/docker@1.6.0
+
 
 jobs:
   build:
-    docker: 
-      - image: circleci/node:latest
+    executor: docker/docker
         
     steps:
+      - setup_remote_docker
       - checkout
       - docker/check
       - docker/build:
           image: yongwon0824/test
+       - docker/push:
+          image: yongwon0824/test
       - run: echo "SUCCESS"
+  
+orbs:
+  docker: circleci/docker@1.6.0
   
 workflows:
   version: 2.1
