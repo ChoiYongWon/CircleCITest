@@ -11,6 +11,10 @@ jobs:
     steps:
       - checkout
       - docker/check
+      - docker/build:
+          image: $DOCKER_ID/test
+      - docker/push:
+          image: $DOCKER_ID/test
       - run: echo "SUCCESS"
   
 workflows:
