@@ -18,9 +18,9 @@ jobs:
   
 orbs:
   docker: circleci/docker@1.6.0
-version: 2.1
+  
 workflows:
-
+  version: 2.1
   build:
     jobs:
       - build:
