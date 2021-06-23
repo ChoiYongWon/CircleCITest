@@ -12,9 +12,9 @@ jobs:
       - checkout
       - docker/check
       - docker/build:
-          image: $DOCKER_ID/test
+          image: yongwon0824/test
       - docker/push:
-          image: $DOCKER_ID/test
+          image: yongwon0824/test
       - run: echo "SUCCESS"
   
 workflows:
