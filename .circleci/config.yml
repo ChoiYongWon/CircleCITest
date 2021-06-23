@@ -3,8 +3,9 @@ jobs:
   push:
     executor : docker/docker
     steps:
-      - run: |
-        docker login
+      - run: 
+        command: |
+          docker login
       - run:
         command: |
           echo "Digest is: $(</tmp/digest.txt)"
