@@ -17,4 +17,6 @@ workflows:
   version: 2.1
   build:
     jobs:
-      - build
+      - build:
+        context:
+          - DOCKER
