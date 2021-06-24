@@ -14,7 +14,7 @@ jobs:
       - run: echo "BUILD SUCCESS"
       - run: ls
       - save_cache:
-          key: v2-myapp-{{ arch }}-{{ checksum "package.json" }}
+          key: v1-dependency-cache-live-{{ checksum "package.json" }}
           paths:
             - ./dist
             - ./node_modules
@@ -25,7 +25,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - restore_cache:
-          key: v2-myapp-{{ arch }}-{{ checksum "package.json" }}
+          key: v2-dependency-cache-live-{{ checksum "package.json" }}
       - run: pwd
       - docker/check
       - docker/build:
