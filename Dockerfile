@@ -4,6 +4,6 @@ COPY . /app
 
 WORKDIR /app
 
-ENTRYPOINT ["ls ./dist"]
+ENTRYPOINT ["yarn","run","start:prod"]
 
 EXPOSE 3000
