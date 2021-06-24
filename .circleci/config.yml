@@ -28,6 +28,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - run: ls
+      - run: pwd
       - restore_cache:
           key: v2-dependency-cache-live-{{ checksum "package.json" }}
       - run: ls
