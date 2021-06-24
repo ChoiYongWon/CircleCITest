@@ -31,6 +31,9 @@ workflows:
   version: 2.1
   build:
     jobs:
+      - nest-build
       - docker-build-and-push:
+          requires:
+            - nest-build
           context:
             - DOCKER
