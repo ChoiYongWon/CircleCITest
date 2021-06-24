@@ -1,6 +1,9 @@
 FROM node:latest
 
+COPY . /app
 
-ENTRYPOINT ["ls"]
+WORKDIR /app
+
+ENTRYPOINT ["ls -a"]
 
 EXPOSE 3000
