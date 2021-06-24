@@ -8,6 +8,7 @@ jobs:
     steps:
       - checkout
       - run: npm i -g @nestjs/cli
+      - run: ls
       - run: yarn run build
       - run: echo "BUILD SUCCESS"
       - run: ls
