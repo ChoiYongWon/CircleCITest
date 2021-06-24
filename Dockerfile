@@ -4,6 +4,6 @@ COPY . /app
 
 WORKDIR /app
 
-ENTRYPOINT ["node ./dist/main.js"]
+ENTRYPOINT ["ls ./dist"]
 
 EXPOSE 3000
