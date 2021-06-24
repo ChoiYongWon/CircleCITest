@@ -2,4 +2,7 @@ FROM node:latest
 
 COPY . /app
 
-CMD node index.js
+ENTRYPOINT ["yarn"]
+ENTRYPOINT ["yarn","run","start"]
+
+EXPOSE 3000
