@@ -4,8 +4,7 @@ COPY . /app
 
 WORKDIR /app
 
-ENTRYPOINT ["npm","i","-g",'yarn']
-ENTRYPOINT ["yarn"]
+CMD ls
 ENTRYPOINT ["yarn","run","start"]
 
 EXPOSE 3000
