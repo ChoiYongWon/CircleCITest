@@ -15,7 +15,7 @@ jobs:
       - run: echo "BUILD SUCCESS"
       - run: ls
       - persist_to_workspace:
-          root: /home/circleci/vidalog
+          root: ~/vidalog
           paths:
             - dist
             - node_modules
@@ -26,7 +26,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - attach_workspace:
-          at: /home/circleci/vidalog
+          at: ~/vidalog
       - run: ls
       - run: pwd
       - restore_cache:
