@@ -8,25 +8,25 @@ jobs:
     working_directory: ~/vidalog
     steps:
       - checkout
-      - restore_cache:
-          key: v2-dependency-cache-live-{{ checksum "package.json" }}
       - run: npm i -g @nestjs/cli
       - run : yarn
       - run: pwd
       - run: yarn run build
       - run: echo "BUILD SUCCESS"
       - run: ls
-      - save_cache:
-          key: v2-dependency-cache-live-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: /home/circleci/vidalog
           paths:
-            - ./dist
-            - ./node_modules
+            - dist
+            - node_modules
   docker-build-and-push:
     executor: docker/docker
     working_directory: ~/vidalog
     steps:
       - setup_remote_docker
       - checkout
+      - attach_workspace:
+          at: /home/circleci/vidalog
       - run: ls
       - run: pwd
       - restore_cache:
