@@ -12,7 +12,7 @@ jobs:
           key: v2-dependency-cache-live-{{ checksum "package.json" }}
       - run: npm i -g @nestjs/cli
       - run : yarn
-      - run: ls
+      - run: pwd
       - run: yarn run build
       - run: echo "BUILD SUCCESS"
       - run: ls
