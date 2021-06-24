@@ -7,6 +7,8 @@ jobs:
       - image: node:latest
     steps:
       - checkout
+      - restore_cache:
+          key: v2-dependency-cache-live-{{ checksum "package.json" }}
       - run: npm i -g @nestjs/cli
       - run : yarn
       - run: ls
@@ -14,7 +16,7 @@ jobs:
       - run: echo "BUILD SUCCESS"
       - run: ls
       - save_cache:
-          key: v1-dependency-cache-live-{{ checksum "package.json" }}
+          key: v2-dependency-cache-live-{{ checksum "package.json" }}
           paths:
             - ./dist
             - ./node_modules
@@ -25,14 +27,20 @@ jobs:
       - setup_remote_docker
       - checkout
       - restore_cache:
-          key: v1-dependency-cache-live-{{ checksum "package.json" }}
+          key: v2-dependency-cache-live-{{ checksum "package.json" }}
       - run: ls
       - docker/check
       - docker/build:
           image: yongwon0824/test
       - docker/push:
           image: yongwon0824/test
+      - save_cache:
+          key: v2-dependency-cache-live-{{ checksum "package.json" }}
+          paths:
+            - ./dist
+            - ./node_modules
       - run: echo "SUCCESS"
+      
   
 orbs:
   docker: circleci/docker@1.6.0
