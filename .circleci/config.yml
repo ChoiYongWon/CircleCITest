@@ -23,7 +23,8 @@ jobs:
     executor: docker/docker
     working_directory: ~/vidalog
     steps:
-      - setup_remote_docker
+      - setup_remote_docker:
+        version: 20.10.7
       - checkout
       - attach_workspace:
           at: ~/vidalog
