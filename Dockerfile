@@ -1,10 +1,10 @@
 FROM node:latest
 
-COPY . /app
+COPY . /vidalog
 
-WORKDIR /app
+WORKDIR /vidalog
 
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+RUN apt-get update && apt-get install
 
 RUN npm i -g @nestjs/cli
 
