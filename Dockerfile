@@ -3,6 +3,7 @@ FROM node:latest
 COPY ./dist /app/dist
 
 COPY ./package.json /app
+COPY ./yarn.lock /app
 
 WORKDIR /app
 
