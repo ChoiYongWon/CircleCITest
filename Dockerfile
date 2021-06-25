@@ -4,11 +4,11 @@ COPY . /app
 
 WORKDIR /app
 
-CMD ls
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 
 RUN npm i -g @nestjs/cli
 
-RUN yarn
+RUN yarn 
 
 ENTRYPOINT ["yarn","run","start:prod"]
 
