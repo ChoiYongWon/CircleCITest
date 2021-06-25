@@ -1,6 +1,6 @@
 FROM node:latest
 
-COPY ./dist /app
+COPY ./dist /app/dist
 
 COPY ./package.json /app
 
