@@ -1,11 +1,10 @@
 FROM node:latest
 
-COPY ./dist /app/dist
-
-COPY ./package.json /app
-COPY ./yarn.lock /app
+COPY . /app
 
 WORKDIR /app
+
+CMD ls
 
 RUN npm i -g @nestjs/cli
 
