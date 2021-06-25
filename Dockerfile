@@ -1,6 +1,8 @@
 FROM node:latest
 
-COPY . /app
+COPY ./dist /app
+
+COPY ./package.json /app
 
 WORKDIR /app
 
