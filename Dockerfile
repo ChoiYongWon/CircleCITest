@@ -10,7 +10,7 @@ RUN yarn cache clean
 
 RUN npm i -g @nestjs/cli
 
-RUN sudo yarn 
+RUN yarn 
 
 ENTRYPOINT ["yarn","run","start:prod"]
 
