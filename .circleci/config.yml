@@ -16,9 +16,6 @@ jobs:
       - run: ls
       - persist_to_workspace:
           root: ~/vidalog
-          paths:
-            - dist/*
-            - node_modules/*
   docker-build-and-push:
     executor: docker/docker
     working_directory: ~/vidalog
