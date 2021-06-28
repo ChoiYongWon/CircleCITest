@@ -38,6 +38,7 @@ jobs:
           tag: latest
       - run: echo "SUCCESS"
   deploy:
+    machine: true
     steps:
       - checkout
       - run: ssh deployer@ec2-ip.region.compute.amazonaws.com ./deploy.sh
