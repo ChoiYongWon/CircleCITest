@@ -42,9 +42,9 @@ jobs:
     steps:
       - checkout
       - aws-cli/setup:
-          aws-access-key-id: AKIA6GY7IZ7BTODDCGJR
-          aws-region: ap-northeast-2
-          aws-secret-access-key: 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
+          aws-access-key-id: $AWS_ACCESS_KEY
+          aws-region: $AWS_REGION
+          aws-secret-access-key: $AWS_SECRET_KEY
       - run: ls
       - run: pwd
   
@@ -62,3 +62,8 @@ workflows:
             - nest-build
           context:
             - DOCKER
+      - deploy:
+          requires:
+            - docker-build-and-push
+          context:
+            - AWS
