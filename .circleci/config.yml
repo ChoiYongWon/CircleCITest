@@ -37,10 +37,20 @@ jobs:
           image: yongwon0824/test
           tag: latest
       - run: echo "SUCCESS"
-      
+  deploy:
+    executor: aws-cli/default
+    steps:
+      - checkout
+      - aws-cli/setup:
+          aws-access-key-id: AKIA6GY7IZ7BTODDCGJR
+          aws-region: ap-northeast-2
+          aws-secret-access-key: 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
+      - run: ls
+      - run: pwd
   
 orbs:
   docker: circleci/docker@1.6.0
+  aws-cli: circleci/aws-cli@2.0
   
 workflows:
   version: 2.1
