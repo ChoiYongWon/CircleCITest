@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+    backend:
+        image: yongwon0824/test:latest 
+        ports:
+        - 80:3000
