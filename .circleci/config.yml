@@ -41,7 +41,7 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: ssh deployer@ec2-ip.region.compute.amazonaws.com ./deploy.sh
+      - run: ssh ec2-user@54.180.166.3 ./deploy.sh
   
 orbs:
   docker: circleci/docker@1.6.0
